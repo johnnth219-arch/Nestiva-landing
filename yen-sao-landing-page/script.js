@@ -1,4 +1,4 @@
-/* ============================================
+﻿/* ============================================
    YẾN SÀO THIÊN PHÚC — Landing Page Scripts
    ============================================ */
 
@@ -158,54 +158,73 @@ document.addEventListener('DOMContentLoaded', () => {
 
     createParticles();
 
-    // ===== FORM SUBMISSION =====
+    // ===== FORM SUBMISSION — Google Apps Script =====
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwcdJRFnGebNBY6jfQuplSkp1-VYM76FqRTS8HfJJJBDLvHwa51UeV_gWSAmLFAe5-u/exec';
+
     const contactForm = document.getElementById('contact-form');
     const toast = document.getElementById('toast');
 
     contactForm.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        const nameInput = document.getElementById('name');
-        const phoneInput = document.getElementById('phone');
+        const nameInput     = document.getElementById('name');
+        const phoneInput    = document.getElementById('phone');
         const productSelect = document.getElementById('product-interest');
+        const submitBtn     = document.getElementById('submit-order-btn');
 
-        // Simple validation
-        if (!nameInput.value.trim()) {
+        // --- Validate ho ten ---
+        if (nameInput.value.trim().length < 2) {
+            alert('Vui long nhap ho va ten (it nhat 2 ky tu).');
             shakeElement(nameInput);
             nameInput.focus();
             return;
         }
 
-        const phoneRegex = /^(0[2-9]|84[2-9])\d{7,9}$/;
-        const cleanPhone = phoneInput.value.replace(/\s/g, '');
-        if (!cleanPhone || cleanPhone.length < 9) {
+        // --- Validate so dien thoai Viet Nam ---
+        const cleanPhone = phoneInput.value.trim();
+        const phoneRegex = /^(0|\+84)[0-9]{9,10}$/;
+        if (!phoneRegex.test(cleanPhone)) {
+            alert('So dien thoai khong hop le. Vui long nhap so dien thoai Viet Nam (VD: 0946821900).');
             shakeElement(phoneInput);
             phoneInput.focus();
             return;
         }
 
-        // Simulate submission
-        const submitBtn = document.getElementById('submit-order-btn');
+        // --- Loading state ---
         const originalText = submitBtn.innerHTML;
         submitBtn.innerHTML = '<span>⏳ Đang gửi...</span>';
         submitBtn.disabled = true;
         submitBtn.style.opacity = '0.7';
 
-        setTimeout(() => {
-            // Show success toast
-            toast.classList.add('show');
-            
-            // Reset form
+        // --- Payload gui len Google Sheet ---
+        const payload = {
+            name:    nameInput.value.trim(),
+            phone:   cleanPhone,
+            product: productSelect.selectedOptions[0].text,
+            note:    ''
+        };
+
+        // --- Gui POST len Google Apps Script ---
+        fetch(APPS_SCRIPT_URL, {
+            method:  'POST',
+            mode:    'no-cors',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body:    JSON.stringify(payload)
+        })
+        .then(() => showSuccess())
+        .catch(() => showSuccess())
+        .finally(() => {
             contactForm.reset();
             submitBtn.innerHTML = originalText;
             submitBtn.disabled = false;
             submitBtn.style.opacity = '1';
+            contactForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
 
-            // Hide toast after 4s
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 4000);
-        }, 1500);
+        function showSuccess() {
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 4000);
+        }
     });
 
     function shakeElement(el) {
