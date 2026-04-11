@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nestiva – Tinh Hoa Yến Sào, Nâng Niu Sức Khỏe Gia Đình</title>
+    <meta name="description" content="Nestiva – Yến sào nguyên chất 100% – Nước yến, Cháo yến, Súp yến cao cấp. Bồi bổ sức khỏe, làm đẹp da, tăng cường đề kháng cho cả gia đình.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- ===== HEADER / NAVIGATION ===== -->
+    <header class="header" id="header">
+        <div class="container header__inner">
+            <a href="#" class="logo" id="logo">
+                <img src="images/logo-nestiva.png" alt="Nestiva Logo" class="logo__image">
+            </a>
+            <nav class="nav" id="main-nav">
+                <ul class="nav__list">
+                    <li><a href="#home" class="nav__link">Trang chủ</a></li>
+                    <li><a href="#products" class="nav__link">Sản phẩm</a></li>
+                    <li><a href="#benefits" class="nav__link">Lợi ích</a></li>
+                    <li><a href="#testimonials" class="nav__link">Khách hàng</a></li>
+                    <li><a href="#contact" class="nav__link nav__link--cta">Đặt hàng ngay</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger" id="hamburger-btn" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="home">
+        <div class="hero__overlay"></div>
+        <div class="hero__particles" id="particles"></div>
+        <div class="container hero__content">
+            <div class="hero__badge" data-animate="fade-down">
+                <span class="hero__badge-dot"></span>
+                Thương hiệu yến sào uy tín #1 Việt Nam
+            </div>
+            <h1 class="hero__title" data-animate="fade-up">
+                Tinh Hoa <span class="text-gradient">Yến Sào</span><br>
+                Nâng Niu Sức Khỏe Gia Đình Bạn
+            </h1>
+            <p class="hero__subtitle" data-animate="fade-up" data-delay="200">
+                100% yến sào nguyên chất từ thiên nhiên — Bí quyết sống khỏe, đẹp da, 
+                và tăng cường sức đề kháng mà hàng nghìn gia đình Việt đã tin dùng.
+            </p>
+            <div class="hero__actions" data-animate="fade-up" data-delay="400">
+                <a href="#products" class="btn btn--primary btn--lg" id="hero-cta-primary">
+                    <span>Khám Phá Sản Phẩm</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="#benefits" class="btn btn--outline btn--lg" id="hero-cta-secondary">
+                    Tìm Hiểu Thêm
+                </a>
+            </div>
+            <div class="hero__stats" data-animate="fade-up" data-delay="600">
+                <div class="hero__stat">
+                    <span class="hero__stat-number" data-count="15000">0</span>
+                    <span class="hero__stat-label">Khách hàng tin dùng</span>
+                </div>
+                <div class="hero__stat-divider"></div>
+                <div class="hero__stat">
+                    <span class="hero__stat-number" data-count="100">0</span><span class="hero__stat-suffix">%</span>
+                    <span class="hero__stat-label">Nguyên chất tự nhiên</span>
+                </div>
+                <div class="hero__stat-divider"></div>
+                <div class="hero__stat">
+                    <span class="hero__stat-number" data-count="10">0</span><span class="hero__stat-suffix">+</span>
+                    <span class="hero__stat-label">Năm kinh nghiệm</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero__image-wrapper" data-animate="fade-left">
+            <img src="images/hero.png" alt="Yến sào cao cấp" class="hero__image" loading="eager">
+            <div class="hero__image-glow"></div>
+        </div>
+        <div class="hero__scroll-indicator">
+            <span>Cuộn xuống</span>
+            <div class="hero__scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ===== PROBLEMS SECTION ===== -->
+    <section class="problems" id="problems">
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">Bạn có đang gặp phải?</span>
+                <h2 class="section-title">Những <span class="text-gradient">Nỗi Lo</span> Về Sức Khỏe Mà Ai Cũng Gặp</h2>
+                <p class="section-desc">Cuộc sống hiện đại khiến sức khỏe và sắc đẹp dần bị bào mòn. Bạn có thấy mình trong những tình huống dưới đây?</p>
+            </div>
+            <div class="problems__grid">
+                <div class="problem-card" data-animate="fade-up" data-delay="0">
+                    <div class="problem-card__icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 15s1.5-2 4-2 4 2 4 2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                    </div>
+                    <h3 class="problem-card__title">Mệt mỏi, kiệt sức triền miên</h3>
+                    <p class="problem-card__desc">Làm việc cả ngày nhưng cơ thể luôn uể oải, thiếu năng lượng. Bạn cảm thấy "cạn kiệt" dù đã ngủ đủ giấc.</p>
+                </div>
+                <div class="problem-card" data-animate="fade-up" data-delay="100">
+                    <div class="problem-card__icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="9" y1="12" x2="15" y2="12"/></svg>
+                    </div>
+                    <h3 class="problem-card__title">Sức đề kháng yếu, hay ốm vặt</h3>
+                    <p class="problem-card__desc">Trời thay đổi thời tiết là cảm cúm. Con nhỏ, người già trong nhà liên tục bệnh khiến bạn lo lắng.</p>
+                </div>
+                <div class="problem-card" data-animate="fade-up" data-delay="200">
+                    <div class="problem-card__icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                    </div>
+                    <h3 class="problem-card__title">Da xỉn màu, lão hóa sớm</h3>
+                    <p class="problem-card__desc">Da mất dần độ ẩm, nếp nhăn xuất hiện ngày càng rõ. Làn da không còn căng mịn và tươi sáng như trước.</p>
+                </div>
+                <div class="problem-card" data-animate="fade-up" data-delay="300">
+                    <div class="problem-card__icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/><line x1="12" y1="2" x2="12" y2="5"/></svg>
+                    </div>
+                    <h3 class="problem-card__title">Lo bổ sung dinh dưỡng cho con</h3>
+                    <p class="problem-card__desc">Con biếng ăn, chậm lớn, hay ốm? Bạn muốn tìm nguồn dinh dưỡng cao cấp, an toàn cho bé mỗi ngày.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SOLUTION SECTION ===== -->
+    <section class="solution" id="solution">
+        <div class="container">
+            <div class="solution__wrapper">
+                <div class="solution__image-col" data-animate="fade-right">
+                    <div class="solution__image-container">
+                        <img src="images/raw-nest.png" alt="Yến sào nguyên chất" class="solution__image" loading="lazy">
+                        <div class="solution__image-badge">
+                            <span class="solution__badge-number">100%</span>
+                            <span class="solution__badge-text">Nguyên Chất</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="solution__content-col" data-animate="fade-left">
+                    <span class="section-tag">Giải pháp hoàn hảo</span>
+                    <h2 class="section-title">Nestiva — <span class="text-gradient">Món Quà Quý</span> Từ Thiên Nhiên</h2>
+                    <p class="solution__text">
+                        Yến sào từ lâu đã được xem là "vàng trắng" của thiên nhiên, chứa hơn <strong>18 loại axit amin</strong>, 
+                        khoáng chất và glycoprotein quý hiếm giúp bồi bổ cơ thể toàn diện.
+                    </p>
+                    <p class="solution__text">
+                        Tại <strong>Nestiva</strong>, chúng tôi mang đến những sản phẩm yến sào 
+                        <strong>100% nguyên chất</strong>, được chế biến bằng công nghệ hiện đại, giữ nguyên dưỡng chất tự nhiên 
+                        — giúp bạn và gia đình nạp nguồn năng lượng quý giá mỗi ngày.
+                    </p>
+                    <ul class="solution__checklist">
+                        <li class="solution__check-item">
+                            <span class="solution__check-icon">✓</span>
+                            <span>Nguyên liệu 100% yến thiên nhiên, không chất bảo quản</span>
+                        </li>
+                        <li class="solution__check-item">
+                            <span class="solution__check-icon">✓</span>
+                            <span>Quy trình sản xuất đạt chuẩn ISO & HACCP</span>
+                        </li>
+                        <li class="solution__check-item">
+                            <span class="solution__check-icon">✓</span>
+                            <span>Kiểm định chất lượng nghiêm ngặt bởi Bộ Y tế</span>
+                        </li>
+                        <li class="solution__check-item">
+                            <span class="solution__check-icon">✓</span>
+                            <span>Đa dạng sản phẩm phù hợp mọi lứa tuổi</span>
+                        </li>
+                    </ul>
+                    <a href="#products" class="btn btn--primary" id="solution-cta">
+                        <span>Xem sản phẩm ngay</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PRODUCTS SECTION ===== -->
+    <!-- ===== PRODUCTS SECTION (TABBED CATALOG) ===== -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">Bộ sưu tập</span>
+                <h2 class="section-title">Sản Phẩm <span class="text-gradient">Cao Cấp</span> Của Chúng Tôi</h2>
+                <p class="section-desc">Mỗi sản phẩm đều là kết tinh của thiên nhiên và sự tận tâm — mang đến trải nghiệm dinh dưỡng tuyệt vời nhất.</p>
+            </div>
+
+            <!-- Category Tabs -->
+            <div class="products__tabs" data-animate="fade-up">
+                <button class="products__tab products__tab--active" data-tab="sup" id="tab-sup">🍲 Súp</button>
+                <button class="products__tab" data-tab="chao" id="tab-chao">🥣 Cháo</button>
+                <button class="products__tab" data-tab="yen-nuoc" id="tab-yen-nuoc">🫙 Yến Nước</button>
+                <button class="products__tab" data-tab="combo" id="tab-combo">🎁 Combo – Hộp Quà</button>
+            </div>
+
+            <!-- ===== TAB: SÚP ===== -->
+            <div class="products__panel products__panel--active" id="panel-sup">
+                <div class="products__grid products__grid--3">
+
+                    <div class="product-card" data-animate="fade-up" data-delay="0">
+                        <div class="product-card__image-wrap">
+                            <img src="images/sup-bao-ngu-to-yen.jpg" alt="Súp Bào Ngư Tổ Yến" class="product-card__image" loading="lazy">
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__weight">259gr</span>
+                            <h3 class="product-card__title">Súp Bào Ngư Tổ Yến</h3>
+                            <p class="product-card__desc">Kết hợp hoàn hảo giữa bào ngư tươi và tổ yến thiên nhiên — bổ dưỡng, thanh mát, thích hợp cho mọi lứa tuổi.</p>
+                            <div class="product-card__price">
+                                <span class="product-card__price-current">419.000đ</span>
+                            </div>
+                            <a href="#contact" class="btn btn--primary btn--full" id="order-sup-bao-ngu-to-yen">Đặt Hàng Ngay</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card product-card--featured" data-animate="fade-up" data-delay="100">
+                        <div class="product-card__badge">Bán chạy</div>
+                        <div class="product-card__image-wrap">
+                            <img src="images/sup-bao-ngu-vi-ca.jpg" alt="Súp Bào Ngư Vi Cá" class="product-card__image" loading="lazy">
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__weight">259gr</span>
+                            <h3 class="product-card__title">Súp Bào Ngư Vi Cá</h3>
+                            <p class="product-card__desc">Hương vị đậm đà từ vi cá kết hợp bào ngư — món ăn bổ dưỡng cao cấp, tăng cường sinh lực toàn diện.</p>
+                            <div class="product-card__price">
+                                <span class="product-card__price-current">519.000đ</span>
+                            </div>
+                            <a href="#contact" class="btn btn--primary btn--full" id="order-sup-bao-ngu-vi-ca">Đặt Hàng Ngay</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-animate="fade-up" data-delay="200">
+                        <div class="product-card__image-wrap">
+                            <img src="images/sup-bao-ngu-hai-sam-vi-ca.jpg" alt="Súp Bào Ngư Hải Sâm Vi Cá" class="product-card__image" loading="lazy">
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__weight">259gr</span>
+                            <h3 class="product-card__title">Súp Bào Ngư Hải Sâm Vi Cá</h3>
+                            <p class="product-card__desc">Tam bảo đại dương — bào ngư, hải sâm, vi cá — bồi bổ thận khí, tăng cường sức đề kháng vượt trội.</p>
+                            <div class="product-card__price">
+                                <span class="product-card__price-current">559.000đ</span>
+                            </div>
+                            <a href="#contact" class="btn btn--primary btn--full" id="order-sup-hai-sam-vi-ca">Đặt Hàng Ngay</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ===== TAB: CHÁO ===== -->
+            <div class="products__panel" id="panel-chao">
+                <div class="products__grid products__grid--4">
+
+                    <div class="product-card" data-animate="fade-up" data-delay="0">
+                        <div class="product-card__image-wrap">
+                            <img src="images/chao-to-yen-hat-sen-ky-tu.jpg" alt="Cháo Tổ Yến Hạt Sen Kỷ Tử" class="product-card__image" loading="lazy">
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__weight">259gr</span>
+                            <h3 class="product-card__title">Cháo Tổ Yến Hạt Sen Kỷ Tử</h3>
+                            <p class="product-card__desc">Bộ ba hoàn hảo — tổ yến, hạt sen, kỷ tử — an thần, dưỡng tâm, giúp ngủ ngon và phục hồi sức khỏe.</p>
+                            <div class="product-card__price">
+                                <span class="product-card__price-current">79.000đ</span>
+                            </div>
+                            <a href="#contact" class="btn btn--primary btn--full" id="order-chao-hat-sen">Đặt Hàng Ngay</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-animate="fade-up" data-delay="100">
+                        <div class="product-card__badge product-card__badge--new">Mới</div>
+                        <div class="product-card__image-wrap">
+                            <img src="images/chao-yen-bo-bam.jpg" alt="Cháo Yến Bò Bằm" class="product-card__image" loading="lazy">
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__weight">259gr</span>
+                            <h3 class="product-card__title">Cháo Yến Bò Bằm</h3>
+                            <p class="product-card__desc">Cháo yến thơm ngon kết hợp bò bằm tươi — giàu protein, phù hợp phục hồi sau ốm và bổ sung năng lượng.</p>
+                            <div class="product-card__price">
+                                <span class="product-card__price-current">79.000đ</span>
+                            </div>
+                            <a href="#contact" class="btn btn--primary btn--full" id="order-chao-bo-bam">Đặt Hàng Ngay</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-animate="fade-up" data-delay="200">
+                        <div class="product-card__image-wrap">
+                            <img src="images/chao-to-yen-so-diep.jpg" alt="Cháo Tổ Yến Sò Điệp" class="product-card__image" loading="lazy">
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__weight">259gr</span>
+                            <h3 class="product-card__title">Cháo Tổ Yến Sò Điệp</h3>
+                            <p class="product-card__desc">Sự kết hợp độc đáo giữa tổ yến và sò điệp cao cấp — vị ngọt thanh, bổ dưỡng, tốt cho xương khớp.</p>
+                            <div class="product-card__price">
+                                <span class="product-card__price-current">99.000đ</span>
+                            </div>
+                            <a href="#contact" class="btn btn--primary btn--full" id="order-chao-so-diep">Đặt Hàng Ngay</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-animate="fade-up" data-delay="300">
+                        <div class="product-card__image-wrap">
+                            <img src="images/chao-to-yen-ca-hoi.jpg" alt="Cháo Tổ Yến Cá Hồi" class="product-card__image" loading="lazy">
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__weight">259gr</span>
+                            <h3 class="product-card__title">Cháo Tổ Yến Cá Hồi</h3>
+                            <p class="product-card__desc">Omega-3 từ cá hồi Norway kết hợp tổ yến thiên nhiên — phát triển trí não, tốt cho mắt và tim mạch.</p>
+                            <div class="product-card__price">
+                                <span class="product-card__price-current">99.000đ</span>
+                            </div>
+                            <a href="#contact" class="btn btn--primary btn--full" id="order-chao-ca-hoi">Đặt Hàng Ngay</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ===== TAB: YẾN NƯỚC ===== -->
+            <div class="products__panel" id="panel-yen-nuoc">
+                <div class="products__grid products__grid--3">
+
+                    <div class="product-card" data-animate="fade-up" data-delay="0">
+                        <div class="product-card__image-wrap">
+                            <img src="images/yen-chung-dong-trung.jpg" alt="Yến Chưng Đông Trùng" class="product-card__image" loading="lazy">
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__weight">70ml</span>
+                            <h3 class="product-card__title">Yến Chưng Đông Trùng</h3>
+                            <p class="product-card__desc">Yến chưng kết hợp đông trùng hạ thảo quý hiếm — tăng cường miễn dịch, bổ phế, phục hồi sức khỏe nhanh.</p>
+                            <div class="product-card__price">
+                                <span class="product-card__price-current">59.000đ</span>
+                                <span class="product-card__price-unit">/ hũ</span>
+                            </div>
+                            <a href="#contact" class="btn btn--primary btn--full" id="order-yen-dong-trung">Đặt Hàng Ngay</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-animate="fade-up" data-delay="100">
+                        <div class="product-card__image-wrap">
+                            <img src="images/yen-chung-nhan-sam.jpg" alt="Yến Chưng Nhân Sâm" class="product-card__image" loading="lazy">
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__weight">70ml</span>
+                            <h3 class="product-card__title">Yến Chưng Nhân Sâm</h3>
+                            <p class="product-card__desc">Tinh hoa yến sào hòa quyện nhân sâm Hàn Quốc — đại bổ nguyên khí, chống mệt mỏi, trẻ hóa cơ thể.</p>
+                            <div class="product-card__price">
+                                <span class="product-card__price-current">59.000đ</span>
+                                <span class="product-card__price-unit">/ hũ</span>
+                            </div>
+                            <a href="#contact" class="btn btn--primary btn--full" id="order-yen-nhan-sam">Đặt Hàng Ngay</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card product-card--featured" data-animate="fade-up" data-delay="200">
+                        <div class="product-card__badge">Cao cấp</div>
+                        <div class="product-card__image-wrap">
+                            <img src="images/hong-yen-chung-dong-trung.jpg" alt="Hồng Yến Chưng Đông Trùng" class="product-card__image" loading="lazy">
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__weight">70ml</span>
+                            <h3 class="product-card__title">Hồng Yến Chưng Đông Trùng</h3>
+                            <p class="product-card__desc">Hồng yến thiên nhiên — loại yến quý hiếm hơn bạch yến — kết hợp đông trùng, bổ huyết, làm đẹp da rạng ngời.</p>
+                            <div class="product-card__price">
+                                <span class="product-card__price-current">99.000đ</span>
+                                <span class="product-card__price-unit">/ hũ</span>
+                            </div>
+                            <a href="#contact" class="btn btn--primary btn--full" id="order-hong-yen-dong-trung">Đặt Hàng Ngay</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ===== TAB: COMBO ===== -->
+            <div class="products__panel" id="panel-combo">
+                <div class="products__grid products__grid--2">
+
+                    <div class="product-card product-card--combo" data-animate="fade-up" data-delay="0">
+                        <div class="product-card__combo-num">COMBO 1</div>
+                        <div class="product-card__image-wrap">
+                            <img src="images/combo-hop-do.jpg" alt="Chuyên Vị Yến Chưng" class="product-card__image" loading="lazy">
+                        </div>
+                        <div class="product-card__content">
+                            <h3 class="product-card__title product-card__title--combo">Chuyên Vị Yến Chưng</h3>
+                            <ul class="product-card__includes">
+                                <li>✦ 12 hũ Yến chưng Đông trùng &amp; Nhân sâm</li>
+                            </ul>
+                            <div class="product-card__price">
+                                <span class="product-card__price-current">688.000đ</span>
+                            </div>
+                            <a href="#contact" class="btn btn--primary btn--full" id="order-combo-1">Đặt Combo Ngay</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card product-card--combo" data-animate="fade-up" data-delay="100">
+                        <div class="product-card__combo-num">COMBO 2</div>
+                        <div class="product-card__image-wrap">
+                            <img src="images/combo-hop-do.jpg" alt="Hài Hòa Mỹ Vị" class="product-card__image" loading="lazy">
+                        </div>
+                        <div class="product-card__content">
+                            <h3 class="product-card__title product-card__title--combo">Hài Hòa Mỹ Vị</h3>
+                            <ul class="product-card__includes">
+                                <li>✦ 1 Cháo tổ yến Hạt sen Kỷ tử</li>
+                                <li>✦ 1 Cháo tổ yến Sò điệp</li>
+                                <li>✦ 2 Súp Bào ngư Vi cá</li>
+                                <li>✦ 4 hũ Yến chưng Đông trùng &amp; Nhân sâm</li>
+                            </ul>
+                            <div class="product-card__price">
+                                <span class="product-card__price-current">1.399.000đ</span>
+                            </div>
+                            <a href="#contact" class="btn btn--primary btn--full" id="order-combo-2">Đặt Combo Ngay</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card product-card--combo" data-animate="fade-up" data-delay="200">
+                        <div class="product-card__combo-num">COMBO 3</div>
+                        <div class="product-card__image-wrap">
+                            <img src="images/combo-hop-xanh.jpg" alt="Thượng Vị Tinh Hoa" class="product-card__image" loading="lazy">
+                        </div>
+                        <div class="product-card__content">
+                            <h3 class="product-card__title product-card__title--combo">Thượng Vị Tinh Hoa</h3>
+                            <ul class="product-card__includes">
+                                <li>✦ 2 Súp Bào ngư Vi cá</li>
+                                <li>✦ 6 hũ Hồng yến chưng Đông trùng</li>
+                            </ul>
+                            <div class="product-card__price">
+                                <span class="product-card__price-current">1.599.000đ</span>
+                            </div>
+                            <a href="#contact" class="btn btn--primary btn--full" id="order-combo-3">Đặt Combo Ngay</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card product-card--combo product-card--combo-featured" data-animate="fade-up" data-delay="300">
+                        <div class="product-card__badge">Ưa chuộng nhất</div>
+                        <div class="product-card__combo-num">COMBO 4</div>
+                        <div class="product-card__image-wrap">
+                            <img src="images/combo-hop-xanh.jpg" alt="Bách Vị Sum Vầy" class="product-card__image" loading="lazy">
+                        </div>
+                        <div class="product-card__content">
+                            <h3 class="product-card__title product-card__title--combo">Bách Vị Sum Vầy</h3>
+                            <ul class="product-card__includes">
+                                <li>✦ 1 Cháo tổ yến Cá hồi</li>
+                                <li>✦ 1 Cháo yến Bò bằm</li>
+                                <li>✦ 1 Cháo tổ yến Sò điệp</li>
+                                <li>✦ 1 Cháo tổ yến Hạt sen Kỷ tử</li>
+                                <li>✦ 2 Súp Bào ngư Vi cá</li>
+                                <li>✦ 5 hũ Hồng yến chưng Đông trùng</li>
+                            </ul>
+                            <div class="product-card__price">
+                                <span class="product-card__price-current">1.888.000đ</span>
+                            </div>
+                            <a href="#contact" class="btn btn--primary btn--full" id="order-combo-4">Đặt Combo Ngay</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===== BENEFITS SECTION ===== -->
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <div class="benefits__wrapper">
+                <div class="benefits__content" data-animate="fade-right">
+                    <span class="section-tag">Vì sao chọn yến sào?</span>
+                    <h2 class="section-title">Lợi Ích <span class="text-gradient">Tuyệt Vời</span> Cho Sức Khỏe</h2>
+                    <div class="benefits__list">
+                        <div class="benefit-item">
+                            <div class="benefit-item__icon">
+                                <span>✨</span>
+                            </div>
+                            <div class="benefit-item__content">
+                                <h3 class="benefit-item__title">Đẹp da, chống lão hóa</h3>
+                                <p class="benefit-item__desc">Glycoprotein và collagen tự nhiên trong yến sào kích thích tái tạo tế bào da, giúp da căng mướt, giảm nếp nhăn rõ rệt sau 4 tuần sử dụng.</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-item__icon">
+                                <span>🛡️</span>
+                            </div>
+                            <div class="benefit-item__content">
+                                <h3 class="benefit-item__title">Tăng cường hệ miễn dịch</h3>
+                                <p class="benefit-item__desc">Acid Sialic trong yến sào giúp cơ thể chống lại virus, vi khuẩn hiệu quả. Giảm tần suất cảm cúm, ốm vặt cho cả gia đình.</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-item__icon">
+                                <span>💪</span>
+                            </div>
+                            <div class="benefit-item__content">
+                                <h3 class="benefit-item__title">Bồi bổ thể lực, giảm mệt mỏi</h3>
+                                <p class="benefit-item__desc">18 loại axit amin thiết yếu giúp phục hồi năng lượng nhanh chóng, cải thiện chất lượng giấc ngủ, tăng cường sức bền.</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-item__icon">
+                                <span>🧒</span>
+                            </div>
+                            <div class="benefit-item__content">
+                                <h3 class="benefit-item__title">Phát triển trí não cho trẻ</h3>
+                                <p class="benefit-item__desc">Axit amin Threonine và Acid Sialic thúc đẩy phát triển não bộ, tăng khả năng tập trung và ghi nhớ ở trẻ em.</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-item__icon">
+                                <span>🤰</span>
+                            </div>
+                            <div class="benefit-item__content">
+                                <h3 class="benefit-item__title">An thai, dưỡng sức cho mẹ bầu</h3>
+                                <p class="benefit-item__desc">Bổ sung dinh dưỡng cho mẹ và bé. Giúp mẹ bầu khỏe mạnh, thai nhi phát triển tốt, sau sinh mau phục hồi.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="benefits__image-col" data-animate="fade-left">
+                    <img src="images/family.png" alt="Gia đình khỏe mạnh" class="benefits__image" loading="lazy">
+                    <div class="benefits__floating-card benefits__floating-card--1">
+                        <span class="benefits__floating-icon">❤️</span>
+                        <span class="benefits__floating-text">15.000+ gia đình tin dùng</span>
+                    </div>
+                    <div class="benefits__floating-card benefits__floating-card--2">
+                        <span class="benefits__floating-icon">⭐</span>
+                        <span class="benefits__floating-text">4.9/5 đánh giá</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS SECTION ===== -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">Đánh giá thực tế</span>
+                <h2 class="section-title">Khách Hàng <span class="text-gradient">Nói Gì</span> Về Chúng Tôi?</h2>
+                <p class="section-desc">Hơn 15.000 khách hàng đã trải nghiệm và yêu thích sản phẩm yến sào của chúng tôi.</p>
+            </div>
+            <div class="testimonials__grid">
+                <div class="testimonial-card" data-animate="fade-up" data-delay="0">
+                    <div class="testimonial-card__stars">★★★★★</div>
+                    <p class="testimonial-card__text">"Mình dùng nước yến Nestiva được 3 tháng, da mặt sáng hẳn lên. Đồng nghiệp ai cũng hỏi mình uống gì mà đẹp ra! Sản phẩm rất chất lượng, đóng gói sang trọng."</p>
+                    <div class="testimonial-card__author">
+                        <div class="testimonial-card__avatar">TL</div>
+                        <div class="testimonial-card__info">
+                            <span class="testimonial-card__name">Chị Thanh Lan</span>
+                            <span class="testimonial-card__role">Nhân viên văn phòng, 32 tuổi</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card testimonial-card--featured" data-animate="fade-up" data-delay="100">
+                    <div class="testimonial-card__stars">★★★★★</div>
+                    <p class="testimonial-card__text">"Con gái tôi từ nhỏ hay ốm vặt, biếng ăn. Từ khi cho bé ăn cháo yến Nestiva, bé ăn ngon miệng hẳn, tăng cân đều đặn và ít ốm hơn rất nhiều. Cảm ơn Nestiva!"</p>
+                    <div class="testimonial-card__author">
+                        <div class="testimonial-card__avatar">MH</div>
+                        <div class="testimonial-card__info">
+                            <span class="testimonial-card__name">Chị Mai Hương</span>
+                            <span class="testimonial-card__role">Mẹ bỉm sữa, 28 tuổi</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-animate="fade-up" data-delay="200">
+                    <div class="testimonial-card__stars">★★★★★</div>
+                    <p class="testimonial-card__text">"Tôi mua súp yến tặng bố mẹ già. Sau 2 tháng, bố tôi đi lại nhanh nhẹn hơn, mẹ tôi ngủ ngon hơn. Yến sào Nestiva là món quà sức khỏe tuyệt vời nhất!"</p>
+                    <div class="testimonial-card__author">
+                        <div class="testimonial-card__avatar">VD</div>
+                        <div class="testimonial-card__info">
+                            <span class="testimonial-card__name">Anh Văn Đức</span>
+                            <span class="testimonial-card__role">Doanh nhân, 45 tuổi</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WHY US SECTION ===== -->
+    <section class="why-us" id="why-us">
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">Cam kết của chúng tôi</span>
+                <h2 class="section-title">Tại Sao Chọn <span class="text-gradient">Nestiva</span>?</h2>
+            </div>
+            <div class="why-us__grid">
+                <div class="why-us__card" data-animate="fade-up" data-delay="0">
+                    <div class="why-us__card-number">01</div>
+                    <h3 class="why-us__card-title">Nguồn gốc minh bạch</h3>
+                    <p class="why-us__card-desc">100% yến sào từ các nhà yến đạt chuẩn tại Khánh Hòa, Ninh Thuận. Mỗi sản phẩm đều có mã truy xuất nguồn gốc.</p>
+                </div>
+                <div class="why-us__card" data-animate="fade-up" data-delay="100">
+                    <div class="why-us__card-number">02</div>
+                    <h3 class="why-us__card-title">Giao hàng toàn quốc</h3>
+                    <p class="why-us__card-desc">Ship COD toàn quốc, nhận hàng rồi mới thanh toán. Miễn phí giao hàng cho đơn từ 500.000đ.</p>
+                </div>
+                <div class="why-us__card" data-animate="fade-up" data-delay="200">
+                    <div class="why-us__card-number">03</div>
+                    <h3 class="why-us__card-title">Hoàn tiền 100%</h3>
+                    <p class="why-us__card-desc">Cam kết hoàn tiền 100% nếu phát hiện hàng giả, hàng kém chất lượng. Bảo hành uy tín, không rủi ro.</p>
+                </div>
+                <div class="why-us__card" data-animate="fade-up" data-delay="300">
+                    <div class="why-us__card-number">04</div>
+                    <h3 class="why-us__card-title">Tư vấn miễn phí 24/7</h3>
+                    <p class="why-us__card-desc">Đội ngũ chuyên gia dinh dưỡng sẵn sàng tư vấn cách sử dụng yến sào phù hợp với từng đối tượng.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA / CONTACT SECTION ===== -->
+    <section class="cta-section" id="contact">
+        <div class="cta-section__bg"></div>
+        <div class="container">
+            <div class="cta-section__wrapper">
+                <div class="cta-section__content" data-animate="fade-right">
+                    <span class="section-tag section-tag--light">Ưu đãi đặc biệt</span>
+                    <h2 class="cta-section__title">
+                        Đặt Hàng Hôm Nay<br>
+                        <span class="text-gradient-light">Giảm Ngay 20%</span> Đơn Hàng Đầu Tiên
+                    </h2>
+                    <p class="cta-section__desc">
+                        Nhập số điện thoại để nhận tư vấn miễn phí và mã giảm giá <strong>20%</strong> cho đơn hàng đầu tiên. 
+                        Chúng tôi sẽ liên hệ bạn trong vòng 15 phút!
+                    </p>
+                    <ul class="cta-section__perks">
+                        <li>🎁 Giảm 20% đơn hàng đầu tiên</li>
+                        <li>🚚 Miễn phí giao hàng toàn quốc</li>
+                        <li>💯 Cam kết hoàn tiền nếu không hài lòng</li>
+                        <li>📞 Tư vấn 1-1 với chuyên gia dinh dưỡng</li>
+                    </ul>
+                </div>
+                <div class="cta-section__form-col" data-animate="fade-left">
+                    <form class="cta-form" id="contact-form">
+                        <h3 class="cta-form__title">Nhận Ưu Đãi Ngay</h3>
+                        <p class="cta-form__subtitle">Điền thông tin để được tư vấn miễn phí</p>
+                        <div class="cta-form__group">
+                            <label for="name" class="cta-form__label">Họ và tên</label>
+                            <input type="text" id="name" name="name" class="cta-form__input" placeholder="Nguyễn Văn A" required>
+                        </div>
+                        <div class="cta-form__group">
+                            <label for="phone" class="cta-form__label">Số điện thoại</label>
+                            <input type="tel" id="phone" name="phone" class="cta-form__input" placeholder="0946 821 900" required>
+                        </div>
+                        <div class="cta-form__group">
+                            <label for="product-interest" class="cta-form__label">Sản phẩm quan tâm</label>
+                            <select id="product-interest" name="product" class="cta-form__input cta-form__select">
+                                <option value="">-- Chọn sản phẩm --</option>
+                                <option value="yen-sao">Yến Sào Nguyên Tổ</option>
+                                <option value="nuoc-yen">Nước Yến Collagen</option>
+                                <option value="chao-yen">Cháo Yến Dinh Dưỡng</option>
+                                <option value="sup-yen">Súp Yến Nhân Sâm</option>
+                                <option value="combo">Combo Gia Đình</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full btn--lg" id="submit-order-btn">
+                            <span>🎁 Nhận Ưu Đãi 20% Ngay</span>
+                        </button>
+                        <p class="cta-form__note">🔒 Thông tin của bạn được bảo mật 100%</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <a href="#" class="logo logo--footer">
+                        <img src="images/logo-nestiva.png" alt="Nestiva Logo" class="logo__image logo__image--footer">
+                    </a>
+                    <p class="footer__desc">Mang tinh hoa yến sào đến mọi gia đình Việt. Chất lượng là danh dự — Sức khỏe là sứ mệnh.</p>
+                    <div class="footer__social">
+                        <a href="https://www.facebook.com/yensaonestiva" class="footer__social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                        <a href="#" class="footer__social-link" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="5"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        </a>
+                        <a href="https://zalo.me/0946821900" class="footer__social-link" aria-label="Zalo" target="_blank" rel="noopener noreferrer">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2l4-6H9V9h6v2l-4 6z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer__links">
+                    <h4 class="footer__heading">Sản phẩm</h4>
+                    <ul>
+                        <li><a href="#products">Yến Sào Nguyên Tổ</a></li>
+                        <li><a href="#products">Nước Yến Collagen</a></li>
+                        <li><a href="#products">Cháo Yến Dinh Dưỡng</a></li>
+                        <li><a href="#products">Súp Yến Nhân Sâm</a></li>
+                    </ul>
+                </div>
+                <div class="footer__links">
+                    <h4 class="footer__heading">Thông tin</h4>
+                    <ul>
+                        <li><a href="#solution">Về chúng tôi</a></li>
+                        <li><a href="#benefits">Lợi ích yến sào</a></li>
+                        <li><a href="#testimonials">Đánh giá</a></li>
+                        <li><a href="#contact">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="footer__contact">
+                    <h4 class="footer__heading">Liên hệ</h4>
+                    <ul>
+                        <li>📍 457/35 Nhật Tảo, Phường Diên Hồng, TP Hồ Chí Minh, Việt Nam</li>
+                        <li>📞 Hotline: <a href="tel:0946821900">0946 821 900</a></li>
+                        <li>✉️ Email: <a href="mailto:info@nestiva.vn">info@nestiva.vn</a></li>
+                        <li>🕐 8:00 - 21:00 (T2 - CN)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2026 Nestiva. Tất cả quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating CTA button (mobile) -->
+    <a href="#contact" class="floating-cta" id="floating-cta">
+        <span>📞</span> Đặt Hàng Ngay
+    </a>
+
+    <!-- Toast notification -->
+    <div class="toast" id="toast">
+        <div class="toast__icon">✅</div>
+        <div class="toast__content">
+            <strong>Gửi thành công!</strong>
+            <p>Chúng tôi sẽ liên hệ bạn trong 15 phút.</p>
+        </div>
+    </div>
+
+
+
+    <script src="script.js"></script>
+
+    <button id="chatbot-toggle" style="position:fixed;bottom:80px;right:20px;width:56px;height:56px;border-radius:50%;background:#C9A84C;color:white;border:none;cursor:pointer;z-index:99999;font-size:24px;box-shadow:0 4px 15px rgba(0,0,0,0.3);">💬</button>
+
+<div id="chatbot-window" style="display:none;position:fixed;bottom:150px;right:20px;width:300px;background:white;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.2);z-index:99999;overflow:hidden;">
+<div style="background:#1a1a1a;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;">
+<span style="color:white;font-weight:600;font-size:14px;">💬 Nestiva Care</span>
+<button id="chatbot-close" style="background:none;border:none;color:white;cursor:pointer;font-size:16px;">✕</button>
+</div>
+<div id="chatbot-body" style="padding:12px;max-height:280px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;"></div>
+</div>
+
+<script>
+(function(){
+var t=document.getElementById('chatbot-toggle');
+var w=document.getElementById('chatbot-window');
+var c=document.getElementById('chatbot-close');
+var b=document.getElementById('chatbot-body');
+function bot(msg){var d=document.createElement('div');d.style.cssText='background:#f5f5f5;padding:8px 12px;border-radius:8px;font-size:13px;';d.textContent=msg;b.appendChild(d);b.scrollTop=b.scrollHeight;}
+function user(msg){var d=document.createElement('div');d.style.cssText='background:#C9A84C;color:white;padding:8px 12px;border-radius:8px;font-size:13px;align-self:flex-end;';d.textContent=msg;b.appendChild(d);b.scrollTop=b.scrollHeight;}
+function replies(opts){var div=document.createElement('div');div.style.cssText='display:flex;flex-wrap:wrap;gap:6px;';opts.forEach(function(o){var btn=document.createElement('button');btn.textContent=o;btn.style.cssText='padding:6px 10px;border:1px solid #C9A84C;background:white;border-radius:6px;font-size:12px;cursor:pointer;';btn.onclick=function(){div.remove();user(o);setTimeout(function(){reply(o);},400);};div.appendChild(btn);});b.appendChild(div);b.scrollTop=b.scrollHeight;}
+function reply(t){if(t.includes('Giá')||t.includes('giá')){bot('Dạ từ 59.000đ/hũ yến nước đến 1.888.000đ combo hộp quà ạ!');replies(['Combo hộp quà','Đặt hàng ngay','Để tôi nghĩ thêm']);}else if(t.includes('Combo')||t.includes('combo')){bot('Dạ có 4 combo từ 688k-1.888k. Combo Bách Vị Sum Vầy 1.888k đang hot nhất ạ!');replies(['Đặt hàng ngay','Để tôi nghĩ thêm']);}else if(t.includes('Ship')||t.includes('ship')){bot('Dạ ship COD toàn quốc, miễn phí đơn từ 500k ạ!');replies(['Đặt hàng ngay']);}else if(t.includes('nghĩ')){bot('Không sao ạ! Để em gửi ưu đãi 20% đơn đầu nhé 💛');replies(['Để lại thông tin']);}else{bot('Dạ anh/chị cần tư vấn gì ạ?');replies(['Giá sản phẩm?','Combo hộp quà','Ship toàn quốc không?']);}}
+t.addEventListener('click',function(){if(w.style.display==='none'){w.style.display='block';if(b.children.length===0){bot('Dạ chào anh/chị! 🌿 Nestiva xin chào. Anh/chị muốn hỏi gì ạ?');replies(['Giá sản phẩm?','Combo hộp quà','Ship toàn quốc không?']);}}else{w.style.display='none';}});
+if(c)c.addEventListener('click',function(){w.style.display='none';});
+})();
+</script>
+</body>
+</html>
