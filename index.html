@@ -733,30 +733,7 @@
         </div>
     </div>
 
-    <!-- Chatbot Nestiva -->
-    <button id="chatbot-toggle" class="chatbot-toggle" aria-label="Open chat">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-    </button>
 
-    <div id="chatbot-window" class="chatbot-window">
-        <div class="chatbot-header">
-            <div class="chatbot-header-info">
-                <img src="images/logo-nestiva.png" alt="Nestiva">
-                <div>
-                    <h4>Nestiva Care</h4>
-                    <p>Trực tuyến</p>
-                </div>
-            </div>
-            <button id="chatbot-close" aria-label="Close chat">✕</button>
-        </div>
-        <div class="chatbot-body" id="chatbot-body">
-            <!-- Messages go here -->
-        </div>
-        <div class="chatbot-footer">
-            <input type="text" placeholder="Chọn câu hỏi ở trên..." disabled>
-            <button disabled>➤</button>
-        </div>
-    </div>
 
     <script src="script.js"></script>
 
@@ -838,5 +815,21 @@
       }
     }
     </script>
+
+    <button id="chatbot-toggle" style="position:fixed;bottom:20px;left:20px;width:60px;height:60px;border-radius:50%;background:#C9A84C;color:white;border:none;cursor:pointer;z-index:9999;font-size:24px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 15px rgba(201,168,76,0.4);">💬</button>
+
+    <div id="chatbot-window" style="display:none;position:fixed;bottom:90px;left:20px;width:320px;max-height:450px;background:white;border-radius:16px;box-shadow:0 10px 40px rgba(0,0,0,0.15);z-index:9999;flex-direction:column;overflow:hidden;">
+      <div style="background:#1a1a1a;padding:16px;display:flex;justify-content:space-between;align-items:center;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <img src="images/logo-nestiva.png" style="width:30px;height:30px;object-fit:contain;">
+          <div><h4 style="color:white;margin:0;font-size:14px;">Nestiva Care</h4><p style="color:#C9A84C;margin:0;font-size:12px;">Trực tuyến</p></div>
+        </div>
+        <button id="chatbot-close" style="background:none;border:none;color:white;cursor:pointer;font-size:18px;">✕</button>
+      </div>
+      <div id="chatbot-body" style="flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;max-height:300px;"></div>
+      <div style="padding:12px;border-top:1px solid #eee;">
+        <input type="text" placeholder="Chọn câu hỏi ở trên..." disabled style="width:100%;padding:8px;border:1px solid #ddd;border-radius:8px;font-size:13px;">
+      </div>
+    </div>
 </body>
 </html>
