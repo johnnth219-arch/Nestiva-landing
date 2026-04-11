@@ -36,7 +36,7 @@
     --green-accent: #27AE60;
 
     /* Gradients */
-    --gradient-gold: linear-gradient(135deg, #D4A017 0%, #F2D06B 50%, #D4A017 100%);
+    --gradient-gold: linear-gradient(135deg, #C9A84C, #F5D98C);
     --gradient-gold-text: linear-gradient(135deg, #D4A017 0%, #F2D06B 40%, #E6B422 100%);
     --gradient-dark: linear-gradient(180deg, #0D0B07 0%, #1E1A12 100%);
     --gradient-hero: linear-gradient(135deg, #0D0B07 0%, #1A1508 40%, #15120C 100%);
