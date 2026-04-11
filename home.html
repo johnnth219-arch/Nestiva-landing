@@ -737,99 +737,29 @@
 
     <script src="script.js"></script>
 
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var toggle = document.getElementById('chatbot-toggle');
-      var win = document.getElementById('chatbot-window');
-      var close = document.getElementById('chatbot-close');
-      var body = document.getElementById('chatbot-body');
-      if (!toggle) return;
-      toggle.addEventListener('click', function() {
-        win.classList.toggle('open');
-        if (win.classList.contains('open') && body.children.length === 0) {
-          addBotMsg('Dạ chào anh/chị! 🌿 Nestiva xin chào. Anh/chị muốn hỏi gì ạ?');
-          showReplies(['Giá sản phẩm?', 'Combo hộp quà Trung Thu', 'Ship toàn quốc không?']);
-        }
-      });
-      if (close) close.addEventListener('click', function() {
-        win.classList.remove('open');
-      });
-    });
-    function addBotMsg(t) {
-      var b = document.getElementById('chatbot-body');
-      var d = document.createElement('div');
-      d.className = 'chatbot-msg chatbot-msg--bot';
-      d.textContent = t;
-      b.appendChild(d);
-      b.scrollTop = b.scrollHeight;
-    }
-    function addUserMsg(t) {
-      var b = document.getElementById('chatbot-body');
-      var d = document.createElement('div');
-      d.className = 'chatbot-msg chatbot-msg--user';
-      d.textContent = t;
-      b.appendChild(d);
-      b.scrollTop = b.scrollHeight;
-    }
-    function showReplies(opts) {
-      var b = document.getElementById('chatbot-body');
-      var w = document.createElement('div');
-      w.className = 'chatbot-quick-replies';
-      opts.forEach(function(o) {
-        var btn = document.createElement('button');
-        btn.textContent = o;
-        btn.onclick = function() {
-          w.remove();
-          addUserMsg(o);
-          setTimeout(function() { handleReply(o); }, 500);
-        };
-        w.appendChild(btn);
-      });
-      b.appendChild(w);
-      b.scrollTop = b.scrollHeight;
-    }
-    function handleReply(t) {
-      if (t.includes('Giá') || t.includes('giá')) {
-        addBotMsg('Dạ sản phẩm từ 59.000đ/hũ yến nước đến 1.888.000đ combo hộp quà ạ!');
-        showReplies(['Combo hộp quà', 'Đặt hàng ngay', 'Để tôi nghĩ thêm']);
-      } else if (t.includes('Combo') || t.includes('combo')) {
-        addBotMsg('Dạ có 4 combo từ 688k-1.888k. Combo Bách Vị Sum Vầy 1.888k đang hot nhất ạ!');
-        showReplies(['Đặt hàng ngay', 'Để tôi nghĩ thêm']);
-      } else if (t.includes('Ship') || t.includes('ship')) {
-        addBotMsg('Dạ ship COD toàn quốc, miễn phí đơn từ 500k. Nhận hàng rồi mới trả tiền ạ!');
-        showReplies(['Đặt hàng ngay', 'Hỏi thêm']);
-      } else if (t.includes('nghĩ') || t.includes('Để')) {
-        addBotMsg('Dạ không sao! Để em gửi ưu đãi 20% đơn đầu tiên nhé. Anh/chị để lại số điện thoại ạ 💛');
-        showReplies(['Để lại thông tin', 'Thôi cảm ơn']);
-      } else if (t.includes('Đặt') || t.includes('Để lại')) {
-        addBotMsg('Dạ anh/chị điền form bên dưới, em liên hệ trong 15 phút ạ!');
-        var b = document.getElementById('chatbot-body');
-        var a = document.createElement('a');
-        a.href = '#contact';
-        a.className = 'chatbot-cta-btn';
-        a.textContent = '📋 Điền form nhận ưu đãi 20%';
-        b.appendChild(a);
-      } else {
-        addBotMsg('Dạ anh/chị cần tư vấn sản phẩm nào ạ?');
-        showReplies(['Yến nước', 'Cháo yến', 'Súp bào ngư', 'Combo hộp quà']);
-      }
-    }
-    </script>
+    <button id="chatbot-toggle" style="position:fixed;bottom:80px;right:20px;width:56px;height:56px;border-radius:50%;background:#C9A84C;color:white;border:none;cursor:pointer;z-index:99999;font-size:24px;box-shadow:0 4px 15px rgba(0,0,0,0.3);">💬</button>
 
-    <button id="chatbot-toggle" style="position:fixed;bottom:20px;left:20px;width:60px;height:60px;border-radius:50%;background:#C9A84C;color:white;border:none;cursor:pointer;z-index:9999;font-size:24px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 15px rgba(201,168,76,0.4);">💬</button>
+<div id="chatbot-window" style="display:none;position:fixed;bottom:150px;right:20px;width:300px;background:white;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.2);z-index:99999;overflow:hidden;">
+<div style="background:#1a1a1a;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;">
+<span style="color:white;font-weight:600;font-size:14px;">💬 Nestiva Care</span>
+<button id="chatbot-close" style="background:none;border:none;color:white;cursor:pointer;font-size:16px;">✕</button>
+</div>
+<div id="chatbot-body" style="padding:12px;max-height:280px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;"></div>
+</div>
 
-    <div id="chatbot-window" style="display:none;position:fixed;bottom:90px;left:20px;width:320px;max-height:450px;background:white;border-radius:16px;box-shadow:0 10px 40px rgba(0,0,0,0.15);z-index:9999;flex-direction:column;overflow:hidden;">
-      <div style="background:#1a1a1a;padding:16px;display:flex;justify-content:space-between;align-items:center;">
-        <div style="display:flex;align-items:center;gap:10px;">
-          <img src="images/logo-nestiva.png" style="width:30px;height:30px;object-fit:contain;">
-          <div><h4 style="color:white;margin:0;font-size:14px;">Nestiva Care</h4><p style="color:#C9A84C;margin:0;font-size:12px;">Trực tuyến</p></div>
-        </div>
-        <button id="chatbot-close" style="background:none;border:none;color:white;cursor:pointer;font-size:18px;">✕</button>
-      </div>
-      <div id="chatbot-body" style="flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;max-height:300px;"></div>
-      <div style="padding:12px;border-top:1px solid #eee;">
-        <input type="text" placeholder="Chọn câu hỏi ở trên..." disabled style="width:100%;padding:8px;border:1px solid #ddd;border-radius:8px;font-size:13px;">
-      </div>
-    </div>
+<script>
+(function(){
+var t=document.getElementById('chatbot-toggle');
+var w=document.getElementById('chatbot-window');
+var c=document.getElementById('chatbot-close');
+var b=document.getElementById('chatbot-body');
+function bot(msg){var d=document.createElement('div');d.style.cssText='background:#f5f5f5;padding:8px 12px;border-radius:8px;font-size:13px;';d.textContent=msg;b.appendChild(d);b.scrollTop=b.scrollHeight;}
+function user(msg){var d=document.createElement('div');d.style.cssText='background:#C9A84C;color:white;padding:8px 12px;border-radius:8px;font-size:13px;align-self:flex-end;';d.textContent=msg;b.appendChild(d);b.scrollTop=b.scrollHeight;}
+function replies(opts){var div=document.createElement('div');div.style.cssText='display:flex;flex-wrap:wrap;gap:6px;';opts.forEach(function(o){var btn=document.createElement('button');btn.textContent=o;btn.style.cssText='padding:6px 10px;border:1px solid #C9A84C;background:white;border-radius:6px;font-size:12px;cursor:pointer;';btn.onclick=function(){div.remove();user(o);setTimeout(function(){reply(o);},400);};div.appendChild(btn);});b.appendChild(div);b.scrollTop=b.scrollHeight;}
+function reply(t){if(t.includes('Giá')||t.includes('giá')){bot('Dạ từ 59.000đ/hũ yến nước đến 1.888.000đ combo hộp quà ạ!');replies(['Combo hộp quà','Đặt hàng ngay','Để tôi nghĩ thêm']);}else if(t.includes('Combo')||t.includes('combo')){bot('Dạ có 4 combo từ 688k-1.888k. Combo Bách Vị Sum Vầy 1.888k đang hot nhất ạ!');replies(['Đặt hàng ngay','Để tôi nghĩ thêm']);}else if(t.includes('Ship')||t.includes('ship')){bot('Dạ ship COD toàn quốc, miễn phí đơn từ 500k ạ!');replies(['Đặt hàng ngay']);}else if(t.includes('nghĩ')){bot('Không sao ạ! Để em gửi ưu đãi 20% đơn đầu nhé 💛');replies(['Để lại thông tin']);}else{bot('Dạ anh/chị cần tư vấn gì ạ?');replies(['Giá sản phẩm?','Combo hộp quà','Ship toàn quốc không?']);}}
+t.addEventListener('click',function(){if(w.style.display==='none'){w.style.display='block';if(b.children.length===0){bot('Dạ chào anh/chị! 🌿 Nestiva xin chào. Anh/chị muốn hỏi gì ạ?');replies(['Giá sản phẩm?','Combo hộp quà','Ship toàn quốc không?']);}}else{w.style.display='none';}});
+if(c)c.addEventListener('click',function(){w.style.display='none';});
+})();
+</script>
 </body>
 </html>
