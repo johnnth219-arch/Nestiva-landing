@@ -1759,8 +1759,8 @@ ul { list-style: none; }
 /* === CHATBOT === */
 .chatbot-toggle {
     position: fixed;
-    bottom: 24px;
-    right: 24px;
+    bottom: 20px;
+    right: 20px;
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -1769,8 +1769,8 @@ ul { list-style: none; }
     border: none;
     box-shadow: var(--shadow-gold-lg);
     cursor: pointer;
-    z-index: 1000;
-    display: flex;
+    z-index: 9999;
+    display: block;
     align-items: center;
     justify-content: center;
     transition: transform 0.3s var(--ease-spring);
