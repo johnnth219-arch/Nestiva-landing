@@ -759,5 +759,84 @@
     </div>
 
     <script src="script.js"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var toggle = document.getElementById('chatbot-toggle');
+      var win = document.getElementById('chatbot-window');
+      var close = document.getElementById('chatbot-close');
+      var body = document.getElementById('chatbot-body');
+      if (!toggle) return;
+      toggle.addEventListener('click', function() {
+        win.classList.toggle('open');
+        if (win.classList.contains('open') && body.children.length === 0) {
+          addBotMsg('Dạ chào anh/chị! 🌿 Nestiva xin chào. Anh/chị muốn hỏi gì ạ?');
+          showReplies(['Giá sản phẩm?', 'Combo hộp quà Trung Thu', 'Ship toàn quốc không?']);
+        }
+      });
+      if (close) close.addEventListener('click', function() {
+        win.classList.remove('open');
+      });
+    });
+    function addBotMsg(t) {
+      var b = document.getElementById('chatbot-body');
+      var d = document.createElement('div');
+      d.className = 'chatbot-msg chatbot-msg--bot';
+      d.textContent = t;
+      b.appendChild(d);
+      b.scrollTop = b.scrollHeight;
+    }
+    function addUserMsg(t) {
+      var b = document.getElementById('chatbot-body');
+      var d = document.createElement('div');
+      d.className = 'chatbot-msg chatbot-msg--user';
+      d.textContent = t;
+      b.appendChild(d);
+      b.scrollTop = b.scrollHeight;
+    }
+    function showReplies(opts) {
+      var b = document.getElementById('chatbot-body');
+      var w = document.createElement('div');
+      w.className = 'chatbot-quick-replies';
+      opts.forEach(function(o) {
+        var btn = document.createElement('button');
+        btn.textContent = o;
+        btn.onclick = function() {
+          w.remove();
+          addUserMsg(o);
+          setTimeout(function() { handleReply(o); }, 500);
+        };
+        w.appendChild(btn);
+      });
+      b.appendChild(w);
+      b.scrollTop = b.scrollHeight;
+    }
+    function handleReply(t) {
+      if (t.includes('Giá') || t.includes('giá')) {
+        addBotMsg('Dạ sản phẩm từ 59.000đ/hũ yến nước đến 1.888.000đ combo hộp quà ạ!');
+        showReplies(['Combo hộp quà', 'Đặt hàng ngay', 'Để tôi nghĩ thêm']);
+      } else if (t.includes('Combo') || t.includes('combo')) {
+        addBotMsg('Dạ có 4 combo từ 688k-1.888k. Combo Bách Vị Sum Vầy 1.888k đang hot nhất ạ!');
+        showReplies(['Đặt hàng ngay', 'Để tôi nghĩ thêm']);
+      } else if (t.includes('Ship') || t.includes('ship')) {
+        addBotMsg('Dạ ship COD toàn quốc, miễn phí đơn từ 500k. Nhận hàng rồi mới trả tiền ạ!');
+        showReplies(['Đặt hàng ngay', 'Hỏi thêm']);
+      } else if (t.includes('nghĩ') || t.includes('Để')) {
+        addBotMsg('Dạ không sao! Để em gửi ưu đãi 20% đơn đầu tiên nhé. Anh/chị để lại số điện thoại ạ 💛');
+        showReplies(['Để lại thông tin', 'Thôi cảm ơn']);
+      } else if (t.includes('Đặt') || t.includes('Để lại')) {
+        addBotMsg('Dạ anh/chị điền form bên dưới, em liên hệ trong 15 phút ạ!');
+        var b = document.getElementById('chatbot-body');
+        var a = document.createElement('a');
+        a.href = '#contact';
+        a.className = 'chatbot-cta-btn';
+        a.textContent = '📋 Điền form nhận ưu đãi 20%';
+        b.appendChild(a);
+      } else {
+        addBotMsg('Dạ anh/chị cần tư vấn sản phẩm nào ạ?');
+        showReplies(['Yến nước', 'Cháo yến', 'Súp bào ngư', 'Combo hộp quà']);
+      }
+    }
+    </script>
 </body>
 </html>
