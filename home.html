@@ -755,7 +755,7 @@
                     <span style="font-size:20px;">🏦</span>
                     <div>
                         <div style="color:#C9A84C;font-weight:700;font-size:14px;">TPBank</div>
-                        <div style="color:#fff;font-size:16px;font-weight:600;letter-spacing:1px;">0384 7966 501</div>
+                        <div style="color:#fff;font-size:16px;font-weight:600;letter-spacing:1px;">038 4796 5501</div>
                     </div>
                 </div>
                 <div style="color:#ccc;font-size:13px;">Chủ TK: <strong style="color:#fff;">NGUYỄN CHÍ THANH</strong></div>
@@ -774,15 +774,16 @@
 
     <script src="script.js"></script>
     <script>
-    /* ===== SePay QR Payment Modal ===== */
+    /* ===== VietQR Payment Modal (replaces SePay – SePay bị Cloudflare 403) ===== */
     (function() {
-        var BANK = 'TPBank';
-        var ACC  = '03847965501';
+        var BANK = 'TPB';          // VietQR bank code cho TPBank
+        var ACC  = '03847965501';  // Số TK TPBank – xác nhận lại nếu cần
+        var ACCT_NAME = 'NGUYEN CHI THANH';
 
         function openPayment(productName, price) {
             var rawPrice = parseInt(price.replace(/[^0-9]/g,''));
             var note     = encodeURIComponent('NESTIVA ' + productName.substring(0,20).toUpperCase());
-            var qrUrl    = 'https://qr.sepay.vn/img?acc=' + ACC + '&bank=' + BANK + '&amount=' + rawPrice + '&des=' + note + '&template=compact';
+            var qrUrl    = 'https://img.vietqr.io/image/' + BANK + '-' + ACC + '-compact2.png?amount=' + rawPrice + '&addInfo=' + note + '&accountName=' + encodeURIComponent(ACCT_NAME);
 
             document.getElementById('modal-product-name').textContent  = productName;
             document.getElementById('modal-product-price').textContent = price;
