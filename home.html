@@ -733,9 +733,108 @@
         </div>
     </div>
 
+    <!-- ===== PAYMENT QR MODAL (SePay) ===== -->
+    <div id="payment-modal" style="display:none;position:fixed;inset:0;z-index:999999;background:rgba(0,0,0,0.75);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);align-items:center;justify-content:center;">
+        <div style="background:linear-gradient(145deg,#1a1208,#2d1f00);border:1px solid rgba(201,168,76,0.35);border-radius:20px;padding:32px 28px;max-width:420px;width:92%;position:relative;box-shadow:0 24px 60px rgba(0,0,0,0.6);animation:modalIn .3s ease;">
+            <!-- Close -->
+            <button id="payment-modal-close" style="position:absolute;top:14px;right:16px;background:rgba(255,255,255,.1);border:none;color:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:18px;line-height:32px;">&times;</button>
+            <!-- Header -->
+            <div style="text-align:center;margin-bottom:20px;">
+                <div style="font-size:13px;color:#C9A84C;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Thanh toán chuyển khoản</div>
+                <h3 id="modal-product-name" style="color:#fff;font-size:18px;margin:0 0 4px;font-family:'Playfair Display',serif;">Sản phẩm</h3>
+                <div id="modal-product-price" style="color:#C9A84C;font-size:22px;font-weight:700;">0đ</div>
+            </div>
+            <!-- QR Code from SePay -->
+            <div style="background:#fff;border-radius:14px;padding:14px;text-align:center;margin-bottom:18px;">
+                <img id="modal-qr-img" src="" alt="QR Code chuyển khoản" style="width:200px;height:200px;object-fit:contain;display:block;margin:0 auto;">
+                <div style="margin-top:10px;font-size:11px;color:#666;">Quét bằng app ngân hàng bất kỳ</div>
+            </div>
+            <!-- Bank info -->
+            <div style="background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.25);border-radius:12px;padding:14px;margin-bottom:18px;">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+                    <span style="font-size:20px;">🏦</span>
+                    <div>
+                        <div style="color:#C9A84C;font-weight:700;font-size:14px;">TPBank</div>
+                        <div style="color:#fff;font-size:16px;font-weight:600;letter-spacing:1px;">0384 7966 501</div>
+                    </div>
+                </div>
+                <div style="color:#ccc;font-size:13px;">Chủ TK: <strong style="color:#fff;">NGUYỄN CHÍ THANH</strong></div>
+                <div style="color:#ccc;font-size:13px;margin-top:4px;">Nội dung CK: <strong id="modal-transfer-note" style="color:#C9A84C;">NESTIVA ORDER</strong></div>
+            </div>
+            <!-- Note -->
+            <p style="text-align:center;color:#aaa;font-size:12px;margin:0;">⚡ Sau khi chuyển khoản, Nestiva sẽ xác nhận và liên hệ bạn trong <strong style="color:#C9A84C;">15 phút</strong></p>
+        </div>
+    </div>
+    <style>
+    @keyframes modalIn { from { opacity:0; transform:translateY(30px) scale(.95); } to { opacity:1; transform:translateY(0) scale(1); } }
+    #payment-modal.active { display:flex !important; }
+    </style>
+
 
 
     <script src="script.js"></script>
+    <script>
+    /* ===== SePay QR Payment Modal ===== */
+    (function() {
+        var BANK = 'TPBank';
+        var ACC  = '03847965501';
+
+        function openPayment(productName, price) {
+            var rawPrice = parseInt(price.replace(/[^0-9]/g,''));
+            var note     = encodeURIComponent('NESTIVA ' + productName.substring(0,20).toUpperCase());
+            var qrUrl    = 'https://qr.sepay.vn/img?acc=' + ACC + '&bank=' + BANK + '&amount=' + rawPrice + '&des=' + note + '&template=compact';
+
+            document.getElementById('modal-product-name').textContent  = productName;
+            document.getElementById('modal-product-price').textContent = price;
+            document.getElementById('modal-transfer-note').textContent = 'NESTIVA ' + productName.substring(0,20).toUpperCase();
+            document.getElementById('modal-qr-img').src = qrUrl;
+            document.getElementById('payment-modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePayment() {
+            document.getElementById('payment-modal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('payment-modal-close').addEventListener('click', closePayment);
+        document.getElementById('payment-modal').addEventListener('click', function(e) {
+            if (e.target === this) closePayment();
+        });
+
+        /* Attach to all "Đặt Hàng" buttons */
+        var btnMap = [
+            { id:'order-sup-bao-ngu-to-yen',  name:'Súp Bào Ngư Tổ Yến',          price:'419.000đ' },
+            { id:'order-sup-bao-ngu-vi-ca',   name:'Súp Bào Ngư Vi Cá',            price:'519.000đ' },
+            { id:'order-sup-hai-sam-vi-ca',   name:'Súp Bào Ngư Hải Sâm Vi Cá',   price:'559.000đ' },
+            { id:'order-chao-hat-sen',        name:'Cháo Tổ Yến Hạt Sen Kỷ Tử',   price:'79.000đ'  },
+            { id:'order-chao-bo-bam',         name:'Cháo Yến Bò Bằm',              price:'79.000đ'  },
+            { id:'order-chao-so-diep',        name:'Cháo Tổ Yến Sò Điệp',          price:'99.000đ'  },
+            { id:'order-chao-ca-hoi',         name:'Cháo Tổ Yến Cá Hồi',           price:'99.000đ'  },
+            { id:'order-yen-dong-trung',      name:'Yến Chưng Đông Trùng',          price:'59.000đ'  },
+            { id:'order-yen-nhan-sam',        name:'Yến Chưng Nhân Sâm',           price:'59.000đ'  },
+            { id:'order-hong-yen-dong-trung', name:'Hồng Yến Chưng Đông Trùng',    price:'99.000đ'  },
+            { id:'order-combo-1',             name:'Combo Chuyên Vị Yến Chưng',    price:'688.000đ' },
+            { id:'order-combo-2',             name:'Combo Hài Hòa Mỹ Vị',          price:'1.399.000đ'},
+            { id:'order-combo-3',             name:'Combo Thượng Vị Tinh Hoa',     price:'1.599.000đ'},
+            { id:'order-combo-4',             name:'Combo Bách Vị Sum Vầy',        price:'1.888.000đ'}
+        ];
+
+        btnMap.forEach(function(item) {
+            var el = document.getElementById(item.id);
+            if (el) {
+                el.href = '#';
+                el.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openPayment(item.name, item.price);
+                });
+            }
+        });
+
+        /* Expose globally for other CTAs */
+        window.openPaymentModal = function() { openPayment('Sản phẩm Nestiva', ''); };
+    })();
+    </script>
 
     <button id="chatbot-toggle" style="position:fixed;bottom:80px;right:20px;width:56px;height:56px;border-radius:50%;background:#C9A84C;color:white;border:none;cursor:pointer;z-index:99999;font-size:24px;box-shadow:0 4px 15px rgba(0,0,0,0.3);">💬</button>
 
