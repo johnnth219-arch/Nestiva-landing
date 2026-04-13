@@ -217,9 +217,9 @@
           <table>
             <thead><tr>
               <th>ID</th><th>Họ tên</th><th>Số điện thoại</th>
-              <th>Zalo</th><th>Ngày đăng ký</th><th>Thao tác</th>
+              <th>Zalo</th><th>Email</th><th>Ngày đăng ký</th><th>Thao tác</th>
             </tr></thead>
-            <tbody id="customers-tbody"><tr class="loading-row"><td colspan="6"><div class="spinner"></div></td></tr></tbody>
+            <tbody id="customers-tbody"><tr class="loading-row"><td colspan="7"><div class="spinner"></div></td></tr></tbody>
           </table>
         </div>
       </div>
@@ -495,13 +495,14 @@ function renderCustomers() {
   document.getElementById('stat-has-zalo').textContent        = hasZalo;
   document.getElementById('stat-newest-customer').textContent = newest;
 
-  if (!DB.customers.length) { tbody.innerHTML = '<tr class="empty-row"><td colspan="6">Chưa có khách hàng nào</td></tr>'; return; }
+  if (!DB.customers.length) { tbody.innerHTML = '<tr class="empty-row"><td colspan="7">Chưa có khách hàng nào</td></tr>'; return; }
   tbody.innerHTML = DB.customers.map(c => `
-    <tr data-search="${c.name} ${c.phone} ${c.zalo}">
+    <tr data-search="${c.name} ${c.phone} ${c.zalo} ${c.email}">
       <td style="color:var(--muted)">#${c.id}</td>
       <td><strong>${c.name}</strong></td>
       <td>${c.phone || '—'}</td>
       <td>${c.zalo ? `<a href="https://zalo.me/${c.zalo}" target="_blank" style="color:var(--gold)">${c.zalo}</a>` : '—'}</td>
+      <td>${c.email || '—'}</td>
       <td style="color:var(--muted);font-size:12px">${c.registered_at || '—'}</td>
       <td><div class="actions">
         <button class="btn btn--ghost btn--sm btn--icon" onclick='editCustomer(${JSON.stringify(c)})'>✏️</button>
