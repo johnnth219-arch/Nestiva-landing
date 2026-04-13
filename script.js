@@ -198,21 +198,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // --- Payload gui len Google Sheet ---
         const payload = {
-            name:    nameInput.value.trim(),
-            phone:   cleanPhone,
-            product: productSelect.selectedOptions[0].text,
-            note:    ''
+            type: 'waitlist',
+            name: nameInput.value.trim(),
+            phone: cleanPhone,
+            email: document.getElementById('email').value.trim(),
+            product: productSelect.selectedOptions[0].text
         };
 
-        // --- Gui POST len Google Apps Script ---
-        fetch(APPS_SCRIPT_URL, {
-            method:  'POST',
-            mode:    'no-cors',
-            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-            body:    JSON.stringify(payload)
+        // --- Gửi email qua Resend API ---
+        fetch('/api/send-email', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
         })
-        .then(() => showSuccess())
-        .catch(() => showSuccess())
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                showSuccess();
+            } else {
+                throw new Error(data.error || 'Gửi email thất bại');
+            }
+        })
+        .catch(error => {
+            console.error('Email error:', error);
+            showSuccess(); // Vẫn hiển thị thành công để không làm khách hàng lo lắng
+        })
+
+        // --- Vẫn gửi lên Google Apps Script để lưu database ---
+        fetch(APPS_SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify({
+                name: nameInput.value.trim(),
+                phone: cleanPhone,
+                email: document.getElementById('email').value.trim(),
+                product: productSelect.selectedOptions[0].text,
+                note: ''
+            })
+        })
+        .catch(error => console.log('Database save error:', error))
         .finally(() => {
             contactForm.reset();
             submitBtn.innerHTML = originalText;
