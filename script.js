@@ -197,11 +197,12 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.style.opacity = '0.7';
 
         // --- Payload gui len Google Sheet ---
+        const emailValue = document.getElementById('email').value.trim();
         const payload = {
             type: 'waitlist',
             name: nameInput.value.trim(),
             phone: cleanPhone,
-            email: document.getElementById('email').value.trim(),
+            email: emailValue,
             product: productSelect.selectedOptions[0].text
         };
 
