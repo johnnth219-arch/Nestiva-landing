@@ -4,8 +4,12 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 // ─── Email content ────────────────────────────────────────────────────────────
 
+function utf8Meta() {
+  return `<meta charset="UTF-8"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">`;
+}
+
 function email1Html(name) {
-  return `
+  return `<!DOCTYPE html><html><head>${utf8Meta()}</head><body>
 <div style="font-family: Georgia, 'Times New Roman', serif; max-width: 600px; margin: 0 auto; color: #3a3a3a; background: #fffdf8;">
   <div style="background: linear-gradient(135deg, #C9A84C 0%, #a07830 100%); padding: 32px 40px; text-align: center;">
     <h1 style="color: #fff; margin: 0; font-size: 28px; letter-spacing: 2px;">NESTIVA</h1>
@@ -45,7 +49,7 @@ function email1Html(name) {
 }
 
 function email2Html(name) {
-  return `
+  return `<!DOCTYPE html><html><head>${utf8Meta()}</head><body>
 <div style="font-family: Georgia, 'Times New Roman', serif; max-width: 600px; margin: 0 auto; color: #3a3a3a; background: #fffdf8;">
   <div style="background: linear-gradient(135deg, #C9A84C 0%, #a07830 100%); padding: 32px 40px; text-align: center;">
     <h1 style="color: #fff; margin: 0; font-size: 28px; letter-spacing: 2px;">NESTIVA</h1>
@@ -95,7 +99,7 @@ function email2Html(name) {
 }
 
 function email3Html(name) {
-  return `
+  return `<!DOCTYPE html><html><head>${utf8Meta()}</head><body>
 <div style="font-family: Georgia, 'Times New Roman', serif; max-width: 600px; margin: 0 auto; color: #3a3a3a; background: #fffdf8;">
   <div style="background: linear-gradient(135deg, #C9A84C 0%, #a07830 100%); padding: 32px 40px; text-align: center;">
     <h1 style="color: #fff; margin: 0; font-size: 28px; letter-spacing: 2px;">NESTIVA</h1>
