@@ -92,6 +92,33 @@ ${SIG3}
   return WRAP_OPEN + HEADER + body + FOOTER + WRAP_CLOSE;
 }
 
+function orderConfirmHtml(name, productName, quantity, amount) {
+  const amountFmt = Number(amount).toLocaleString('vi-VN') + '&#273;';
+  const body = `<div style="padding:40px 40px 32px;">
+${p(`Ch&#224;o ${name},`)}
+${p(`&#272;&#417;n h&#224;ng c&#7911;a b&#7841;n v&#7915;a &#273;&#432;&#7907;c x&#225;c nh&#7853;n. C&#7843;m &#417;n b&#7841;n &#273;&#227; tin t&#432;&#7903;ng Nestiva &mdash; &#273;&#226;y l&#224; &#273;i&#7873;u ch&#250;ng m&#236;nh tr&#226;n tr&#7885;ng nh&#7845;t.`)}
+<div style="background:#fdf6e8;border:1px solid #e8dfc8;border-radius:12px;padding:24px;margin:0 0 28px;">
+  <p style="font-size:13px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:1px;margin:0 0 16px;">&#272;&#417;n h&#224;ng c&#7911;a b&#7841;n</p>
+  <table style="width:100%;border-collapse:collapse;font-size:15px;">
+    <tr><td style="padding:8px 0;color:#888;width:40%;">S&#7843;n ph&#7849;m</td><td style="padding:8px 0;font-weight:600;color:#3a3a3a;">${productName}</td></tr>
+    <tr><td style="padding:8px 0;color:#888;">S&#7889; l&#432;&#7907;ng</td><td style="padding:8px 0;font-weight:600;color:#3a3a3a;">${quantity}</td></tr>
+    <tr style="border-top:1px solid #e8dfc8;"><td style="padding:12px 0 0;color:#888;font-weight:700;">T&#7893;ng ti&#7873;n</td><td style="padding:12px 0 0;font-size:20px;font-weight:700;color:#C9A84C;">${amountFmt}</td></tr>
+  </table>
+</div>
+<h3 style="color:#C9A84C;font-size:16px;margin:0 0 12px;">&#128230; H&#432;&#7899;ng d&#7851;n nh&#7853;n h&#224;ng</h3>
+<div style="background:#f9f9f9;border-left:4px solid #C9A84C;padding:16px 20px;margin:0 0 24px;border-radius:0 8px 8px 0;font-size:15px;line-height:1.8;">
+  <p style="margin:0 0 8px;">&#9312; Nestiva s&#7869; x&#225;c nh&#7853;n &#273;&#417;n v&#224; li&#234;n h&#7879; b&#7841;n trong v&#242;ng <strong>2&ndash;4 gi&#7901;</strong> (trong gi&#7901; h&#224;nh ch&#237;nh).</p>
+  <p style="margin:0 0 8px;">&#9313; H&#224;ng &#273;&#432;&#7907;c &#273;&#243;ng g&#243;i c&#7849;n th&#7853;n v&#224; giao qua <strong>GHTK / GHN</strong> trong 1&ndash;3 ng&#224;y l&#224;m vi&#7879;c.</p>
+  <p style="margin:0 0 8px;">&#9314; B&#7841;n s&#7869; nh&#7853;n &#273;&#432;&#7907;c m&#227; v&#7853;n &#273;&#417;n qua Zalo ho&#7863;c SMS khi h&#224;ng &#273;&#432;&#7907;c g&#7917;i &#273;i.</p>
+  <p style="margin:0;">&#9315; N&#7871;u c&#7847;n h&#7895; tr&#7907;, nh&#7855;n tin Zalo Nestiva b&#7845;t c&#7913; l&#250;c n&#224;o &mdash; ch&#250;ng m&#236;nh lu&#244;n s&#7861;n s&#224;ng.</p>
+</div>
+${p(`M&#7895;i h&#7897;p y&#7871;n Nestiva &#273;&#432;&#7907;c ch&#7885;n l&#7885;c k&#7929; l&#432;&#7905;ng v&#224; ch&#7871; bi&#7871;n t&#7915; nguy&#234;n li&#7879;u s&#7841;ch &mdash; &#273;&#7875; m&#7895;i l&#7847;n b&#7841;n m&#7903; ra l&#224; m&#7897;t tr&#7843;i nghi&#7879;m th&#7853;t s&#7921; t&#7889;t l&#224;nh.`)}
+<p style="font-size:16px;line-height:1.8;margin:0 0 32px;">Ch&#250;c b&#7841;n nhi&#7873;u s&#7913;c kh&#7887;e v&#224; h&#7841;nh ph&#250;c nh&#233;.</p>
+${SIG3}
+</div>`;
+  return WRAP_OPEN + HEADER + body + FOOTER + WRAP_CLOSE;
+}
+
 // ─── Delay helper ─────────────────────────────────────────────────────────────
 
 function sleep(ms) {
@@ -119,12 +146,14 @@ export default async function handler(req, res) {
   try {
     const { type, email, name, phone, product } = req.body;
 
-    // ── Legacy: order_confirmation ──────────────────────────────────────────
+    // ── Order confirmation ──────────────────────────────────────────────────
     if (type === 'order_confirmation') {
+      const { productName, quantity, amount } = req.body;
+      if (!email) return res.status(400).json({ error: 'Missing email' });
       const data = await sendEmail({
         to: email,
-        subject: 'Xac nhan don hang - Nestiva',
-        html: `<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;"><h2 style="color:#C9A84C;">Xac nhan don hang</h2><p>Chao ${name},</p><p>Cam on ban da dat hang tai Nestiva!</p><div style="background:#f8f8f8;padding:20px;border-radius:8px;margin:20px 0;"><p><strong>San pham:</strong> ${product}</p><p><strong>So dien thoai:</strong> ${phone}</p></div><p>Chung toi se lien he voi ban trong vong 15 phut de xac nhan va giao hang.</p><p style="color:#666;">Tran trong,<br>Doi ngu Nestiva</p></div>`,
+        subject: '\u0110\u01a1n h\u00e0ng Nestiva \u0111\u00e3 \u0111\u01b0\u1ee3c x\u00e1c nh\u1eadn \u2714\ufe0f',
+        html: orderConfirmHtml(name || 'b\u1ea1n', productName || product || '', quantity || 1, amount || 0),
       });
       return res.status(200).json({ success: true, id: data.id });
     }

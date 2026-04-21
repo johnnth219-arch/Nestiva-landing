@@ -644,6 +644,26 @@ async function saveOrder() {
     loadTab('orders');
     // Reload products to reflect stock change
     DB.products = [];
+
+    // Send order confirmation email (only for new orders with customer email)
+    if (!id) {
+      const customer = DB.customers.find(c => c.id == row.customer_id);
+      const customerEmail = customer?.email;
+      if (customerEmail) {
+        fetch('/api/send-email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            type: 'order_confirmation',
+            email: customerEmail,
+            name: row.customer_name,
+            productName: row.product_name,
+            quantity: row.quantity,
+            amount: row.amount
+          })
+        }).catch(err => console.warn('Email confirmation failed:', err));
+      }
+    }
   } else toast('Lỗi: ' + (res.message || 'Unknown'), 'error');
 }
 
