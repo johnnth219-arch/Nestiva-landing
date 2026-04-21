@@ -137,7 +137,7 @@ export default async function handler(req, res) {
       // Email 1 — send immediately
       const result1 = await sendEmail({
         to: email,
-        subject: 'C&#7843;m &#417;n b&#7841;n &#273;&#227; gh&#233; &#127807; Nestiva r&#7845;t vui &#273;&#432;&#7907;c quen',
+        subject: 'C\u1ea3m \u01a1n b\u1ea1n \u0111\u00e3 gh\u00e9 \ud83c\udf3f Nestiva r\u1ea5t vui \u0111\u01b0\u1ee3c quen',
         html: email1Html(displayName),
       });
 
@@ -146,14 +146,14 @@ export default async function handler(req, res) {
         await sleep(2000);
         await sendEmail({
           to: email,
-          subject: '&#272;i&#7873;u &#237;t ng&#432;&#7901;i bi&#7871;t v&#7873; t&#7893; y&#7871;n &#8212; v&#224; t&#7841;i sao th&#7901;i &#273;i&#7875;m d&#249;ng l&#7841;i quan tr&#7885;ng h&#417;n li&#7873;u l&#432;&#7907;ng',
+          subject: '\u0110i\u1ec1u \u00edt ng\u01b0\u1eddi bi\u1ebft v\u1ec1 t\u1ed5 y\u1ebfn \u2014 v\u00e0 t\u1ea1i sao th\u1eddi \u0111i\u1ec3m d\u00f9ng l\u1ea1i quan tr\u1ecdng h\u01a1n li\u1ec1u l\u01b0\u1ee3ng',
           html: email2Html(displayName),
         });
 
         await sleep(2000);
         await sendEmail({
           to: email,
-          subject: 'Nestiva c&#243; m&#7897;t &#273;i&#7873;u mu&#7889;n g&#7917;i &#273;&#7871;n b&#7841;n &#127807;',
+          subject: 'Nestiva c\u00f3 m\u1ed9t \u0111i\u1ec1u mu\u1ed1n g\u1eedi \u0111\u1ebfn b\u1ea1n \ud83c\udf3f',
           html: email3Html(displayName),
         });
 
@@ -173,7 +173,7 @@ export default async function handler(req, res) {
       const result2 = await resend.emails.send({
         from: 'Nestiva <noreply@nestiva.vn>',
         to: [email],
-        subject: '&#272;i&#7873;u &#237;t ng&#432;&#7901;i bi&#7871;t v&#7873; t&#7893; y&#7871;n &#8212; v&#224; t&#7841;i sao th&#7901;i &#273;i&#7875;m d&#249;ng l&#7841;i quan tr&#7885;ng h&#417;n li&#7873;u l&#432;&#7907;ng',
+        subject: '\u0110i\u1ec1u \u00edt ng\u01b0\u1eddi bi\u1ebft v\u1ec1 t\u1ed5 y\u1ebfn \u2014 v\u00e0 t\u1ea1i sao th\u1eddi \u0111i\u1ec3m d\u00f9ng l\u1ea1i quan tr\u1ecdng h\u01a1n li\u1ec1u l\u01b0\u1ee3ng',
         html: email2Html(displayName),
         scheduledAt: sendAt2.toISOString(),
       });
@@ -181,7 +181,7 @@ export default async function handler(req, res) {
       const result3 = await resend.emails.send({
         from: 'Nestiva <noreply@nestiva.vn>',
         to: [email],
-        subject: 'Nestiva c&#243; m&#7897;t &#273;i&#7873;u mu&#7889;n g&#7917;i &#273;&#7871;n b&#7841;n &#127807;',
+        subject: 'Nestiva c\u00f3 m\u1ed9t \u0111i\u1ec1u mu\u1ed1n g\u1eedi \u0111\u1ebfn b\u1ea1n \ud83c\udf3f',
         html: email3Html(displayName),
         scheduledAt: sendAt3.toISOString(),
       });
