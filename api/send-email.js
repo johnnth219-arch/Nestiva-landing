@@ -137,7 +137,7 @@ export default async function handler(req, res) {
       // Email 1 — send immediately
       const result1 = await sendEmail({
         to: email,
-        subject: 'Cam on ban da ghe - Nestiva rat vui duoc quen',
+        subject: 'C&#7843;m &#417;n b&#7841;n &#273;&#227; gh&#233; &#127807; Nestiva r&#7845;t vui &#273;&#432;&#7907;c quen',
         html: email1Html(displayName),
       });
 
@@ -146,14 +146,14 @@ export default async function handler(req, res) {
         await sleep(2000);
         await sendEmail({
           to: email,
-          subject: 'Dieu it nguoi biet ve to yen - va tai sao thoi diem dung lai quan trong hon lieu luong',
+          subject: '&#272;i&#7873;u &#237;t ng&#432;&#7901;i bi&#7871;t v&#7873; t&#7893; y&#7871;n &#8212; v&#224; t&#7841;i sao th&#7901;i &#273;i&#7875;m d&#249;ng l&#7841;i quan tr&#7885;ng h&#417;n li&#7873;u l&#432;&#7907;ng',
           html: email2Html(displayName),
         });
 
         await sleep(2000);
         await sendEmail({
           to: email,
-          subject: 'Nestiva co mot dieu muon gui den ban',
+          subject: 'Nestiva c&#243; m&#7897;t &#273;i&#7873;u mu&#7889;n g&#7917;i &#273;&#7871;n b&#7841;n &#127807;',
           html: email3Html(displayName),
         });
 
@@ -173,7 +173,7 @@ export default async function handler(req, res) {
       const result2 = await resend.emails.send({
         from: 'Nestiva <noreply@nestiva.vn>',
         to: [email],
-        subject: 'Dieu it nguoi biet ve to yen - va tai sao thoi diem dung lai quan trong hon lieu luong',
+        subject: '&#272;i&#7873;u &#237;t ng&#432;&#7901;i bi&#7871;t v&#7873; t&#7893; y&#7871;n &#8212; v&#224; t&#7841;i sao th&#7901;i &#273;i&#7875;m d&#249;ng l&#7841;i quan tr&#7885;ng h&#417;n li&#7873;u l&#432;&#7907;ng',
         html: email2Html(displayName),
         scheduledAt: sendAt2.toISOString(),
       });
@@ -181,7 +181,7 @@ export default async function handler(req, res) {
       const result3 = await resend.emails.send({
         from: 'Nestiva <noreply@nestiva.vn>',
         to: [email],
-        subject: 'Nestiva co mot dieu muon gui den ban',
+        subject: 'Nestiva c&#243; m&#7897;t &#273;i&#7873;u mu&#7889;n g&#7917;i &#273;&#7871;n b&#7841;n &#127807;',
         html: email3Html(displayName),
         scheduledAt: sendAt3.toISOString(),
       });
